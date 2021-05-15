@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap");
+
+.app {
+    font-family: "Roboto", sans-serif;
+    @apply dark:bg-gray-800 m-auto h-screen flex justify-center;
+}
+
+.app h1 {
+    @apply text-2xl;
+}
+
+h1,
+span {
+    @apply text-white;
+}
+
+.reg-form {
+    @apply shadow-lg rounded-md px-6 py-3;
+}
+
+.app input {
+    @apply border border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent rounded-md sm:w-96 md:w-96 lg:w-96 w-72 py-2 px-2;
+}
