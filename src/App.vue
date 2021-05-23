@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-start absolute" :class="darkModeColor">
+  <div class="flex justify-start absolute" :class="darkMode">
     <button
       class="mx-4 mt-2 hover:bg-gray-700 rounded-md px-2 py-2 outline-none focus:outline-none"
     >
@@ -10,7 +10,7 @@
       </svg>
     </button>
   </div>
-  <div class="app" :class="darkModeColor">
+  <div class="app" :class="darkMode">
     <div class="flex">
       <div class="mt-10">
         <form method="post">
@@ -32,7 +32,12 @@
                 <vuex-input inputText="Occupation" inputType="email" />
               </div>
               <div class="flex">
-                <button type="submit" class="bg-gray-600 px-3 py-3 my-3 rounded-md w-full hover:bg-gray-700">Create my profile</button>
+                <button
+                  type="submit"
+                  class="bg-gray-600 px-3 py-3 my-3 rounded-md w-full hover:bg-gray-700"
+                >
+                  Create my profile
+                </button>
               </div>
             </div>
           </div>
@@ -44,14 +49,17 @@
 
 <script>
 import VuexInput from "./components/vuex-input.vue";
+import { computed } from "vue";
+import { useStore } from "vuex";
 export default {
   components: { VuexInput },
   name: "App",
-  data() {
+  setup() {
+    const store = useStore();
+    console.log('setup',useStore())
     return {
-      darkModeColor: "dark:bg-gray-800 text-white",
-
-      lightModeColor: "bg-white text-black",
+      darkMode: computed(() => store.state.darkModeColor),
+      lightMode: computed(() => store.state.lightModeColor),
     };
   },
 };

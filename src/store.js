@@ -1,9 +1,9 @@
-import Vue from 'vue';
-import Vuex from 'vuex';
+import {
+    createStore
+} from 'vuex'
 
-Vue.use(Vuex);
-
-export const store = new Vuex.Store({
+const store = createStore({
+    strict: true,
     state: {
         darkModeColor: 'dark:bg-gray-800 text-white',
         lightModeColor: "bg-white text-black",
@@ -25,3 +25,7 @@ export const store = new Vuex.Store({
         }
     }
 });
+
+export {
+    store
+};
