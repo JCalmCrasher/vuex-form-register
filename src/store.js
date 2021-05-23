@@ -7,7 +7,7 @@ const store = createStore({
     state: {
         darkModeColor: 'dark:bg-gray-800 text-white',
         lightModeColor: "bg-white text-black",
-        selectedColor: null
+        selectedColor: 'dark:bg-gray-800 text-white'
     },
     actions: {
         toggleColor({

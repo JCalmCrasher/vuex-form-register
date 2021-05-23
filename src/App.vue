@@ -1,15 +1,5 @@
 <template>
-  <div class="flex justify-start absolute" :class="darkMode">
-    <button
-      class="mx-4 mt-2 hover:bg-gray-700 rounded-md px-2 py-2 outline-none focus:outline-none"
-    >
-      <svg viewBox="0 0 512 512" class="w-6" style="fill: #ab7c94">
-        <path
-          d="M333.9 426.2c-.6 0-1.2.1-1.8.2-9.6 1.8-19.2 2.7-28.6 2.7-81.3 0-150-66.1-150-150.4 0-54.2 29-104 76.1-130.8 7.3-4.1 5.4-15.1-2.8-16.7-11.6-2.1-23.3-3.2-35-3.2C85.9 128 0 213.9 0 320c0 106 85.8 192 191.8 192 59.2 0 113.2-26.9 149-71.1 4.9-6 .3-14.7-6.9-14.7zM191.8 480C103.7 480 32 408.2 32 320c0-78.5 56.8-144 131.4-157.5-26.6 32.2-41.8 73.2-41.8 116.2 0 89.8 65.1 164.7 150.5 179.7-24 14-51.6 21.6-80.3 21.6zm311.4-286.3l-48.6-24.3-24.3-48.6c-5.4-10.8-23.2-10.8-28.6 0l-24.3 48.6-48.6 24.3c-5.4 2.7-8.8 8.2-8.8 14.3s3.4 11.6 8.8 14.3l48.6 24.3 24.3 48.6c2.7 5.4 8.2 8.8 14.3 8.8s11.6-3.4 14.3-8.8l24.3-48.6 48.6-24.3c5.4-2.7 8.8-8.2 8.8-14.3s-3.4-11.6-8.8-14.3zm-67.7 26.7c-3.1 1.5-5.6 4.1-7.2 7.2L416 252.2l-12.3-24.7c-1.6-3.1-4.1-5.6-7.2-7.2L371.8 208l24.7-12.4c3.1-1.5 5.6-4.1 7.2-7.2l12.3-24.7 12.3 24.7c1.6 3.1 4.1 5.6 7.2 7.2l24.7 12.4-24.7 12.4zM304 96l16-32 32-16-32-16-16-32-16 32-32 16 32 16 16 32z"
-        ></path>
-      </svg>
-    </button>
-  </div>
+  <color-toggler />
   <div class="app" :class="darkMode">
     <div class="flex">
       <div class="mt-10">
@@ -51,12 +41,12 @@
 import VuexInput from "./components/vuex-input.vue";
 import { computed } from "vue";
 import { useStore } from "vuex";
+import ColorToggler from "./components/color-toggler.vue";
 export default {
-  components: { VuexInput },
+  components: { VuexInput, ColorToggler },
   name: "App",
   setup() {
     const store = useStore();
-    console.log('setup',useStore())
     return {
       darkMode: computed(() => store.state.darkModeColor),
       lightMode: computed(() => store.state.lightModeColor),
