@@ -7,9 +7,11 @@ import './assets/App.css';
 
 import {
     store
-} from './store'
+} from './store/store'
 
 const app = createApp(App);
 app.use(store);
+
+app.config.devtools = true;
 
 app.mount('#app');

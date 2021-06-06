@@ -1,8 +1,8 @@
 <template>
-  <div class="flex justify-start absolute" :class="darkMode">
+  <div class="flex justify-start absolute" :class="defaultColor">
     <button
-      class="mx-4 mt-2 hover:bg-gray-700 rounded-md px-2 py-2 outline-none focus:outline-none"
-      @click="toggleColor"
+      class="mx-4 mt-2 rounded-md px-2 py-2 outline-none focus:outline-none"
+      @click="toggleMainColor"
     >
       <svg viewBox="0 0 512 512" class="w-6" style="fill: #ab7c94">
         <path
@@ -21,12 +21,12 @@ export default {
   setup() {
     const store = useStore();
     return {
-      darkMode: computed(() => store.state.darkModeColor),
-      lightMode: computed(() => store.state.lightModeColor),
+      defaultColor: computed(() => store.state.selectedColor),
+      defaultBtnColor: computed(() => store.state.selectedBtnColor),
+      toggleMainColor: () => {
+        store.dispatch("toggleMainColor");
+      },
     };
-  },
-  methods: {
-    toggleColor() {},
   },
 };
 </script>
