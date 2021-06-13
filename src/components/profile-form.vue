@@ -68,7 +68,6 @@ export default {
   },
   methods: {
     submitProfile() {
-      console.log(this.firstname, this.lastname, this.email, this.occupation);
       this.store.dispatch("user/setFirstName", this.firstname);
       this.store.dispatch("user/setLastName", this.lastname);
       this.store.dispatch("user/setEmail", this.email);

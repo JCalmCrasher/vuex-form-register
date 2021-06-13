@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-5">
+  <div class="mt-5 px-3 py-3">
     <h1>My Profile</h1>
     <div class="flex space-x-2 mt-3">
       <span>Name:</span>
