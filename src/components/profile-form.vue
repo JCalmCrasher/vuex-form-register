@@ -33,7 +33,7 @@
         <div class="flex">
           <button
             type="submit"
-            class="px-3 py-3 my-3 rounded-md w-full"
+            class="px-3 py-3 my-3 rounded-md w-full hover:bg-gray-700"
             :class="btnStyle"
           >
             Create my profile
