@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="app dark:bg-gray-800 text-white"
-    :class="!isProfileCreated ? 'justify-center' : ''"
-  >
+  <div class="app dark:bg-gray-800 text-white">
     <div class="flex">
       <div class="mt-10">
         <profile v-if="isProfileCreated"></profile>
@@ -19,7 +16,7 @@ import ProfileForm from "./components/profile-form.vue";
 import Profile from "./components/profile.vue";
 
 export default {
-  components: { ProfileForm, Profile },
+  components: {ProfileForm, Profile },
   name: "App",
   setup() {
     const store = useStore();

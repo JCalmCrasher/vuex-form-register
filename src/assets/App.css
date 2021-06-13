@@ -2,7 +2,7 @@
 
 .app {
     font-family: "Roboto", sans-serif;
-    @apply m-auto h-screen flex;
+    @apply m-auto h-screen flex justify-center;
 }
 
 .app h1 {
