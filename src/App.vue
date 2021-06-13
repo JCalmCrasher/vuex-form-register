@@ -3,8 +3,8 @@
   <div class="app" :class="defaultColor">
     <div class="flex">
       <div class="mt-10">
-        <profile v-show="isProfileCreated"></profile>
-        <profile-form v-show="!isProfileCreated"></profile-form>
+        <profile v-if="isProfileCreated"></profile>
+        <profile-form v-else></profile-form>
       </div>
     </div>
   </div>
@@ -32,12 +32,6 @@ export default {
       defaultColor: computed(() => store.state.selectedColor),
       isProfileCreated: computed(() => store.state.isProfileCreated),
     };
-  },
-  methods: {
-    submitProfile() {
-      const store = useStore();
-      store.dispatch("setFirstN");
-    },
   },
 };
 </script>

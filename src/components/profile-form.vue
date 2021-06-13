@@ -1,21 +1,34 @@
 <template>
-  <form method="post" @submit="submitProfile">
+  <form method="post" @submit.prevent="submitProfile">
     <div class="flex flex-col reg-form">
       <div class="flex justify-center mb-5">
         <h1>Create your profile</h1>
       </div>
       <div class="flex flex-col space-y-2">
         <div class="flex">
-          <vuex-input inputText="Firstname" v-model="firstname" />
+          <vuex-input inputText="Firstname">
+            <input class="input text-black" required v-model="firstname" />
+          </vuex-input>
         </div>
         <div class="flex">
-          <vuex-input inputText="Lastname" v-model="lastname" />
+          <vuex-input inputText="Lastname">
+            <input class="input text-black" required v-model="lastname" />
+          </vuex-input>
         </div>
         <div class="flex">
-          <vuex-input inputText="Email" inputType="email" v-model="email" />
+          <vuex-input inputText="Email">
+            <input
+              class="input text-black"
+              required
+              v-model="email"
+              type="email"
+            />
+          </vuex-input>
         </div>
         <div class="flex">
-          <vuex-input inputText="Occupation" v-model="occupation" />
+          <vuex-input inputText="Occupation">
+            <input class="input text-black" required v-model="occupation" />
+          </vuex-input>
         </div>
         <div class="flex">
           <button
@@ -32,7 +45,7 @@
 </template>
 
 <script>
-import { computed } from "@vue/runtime-core";
+import { computed, onMounted } from "vue";
 import { useStore } from "vuex";
 import VuexInput from "./vuex-input.vue";
 export default {
@@ -41,7 +54,10 @@ export default {
   setup() {
     const store = useStore();
 
+    onMounted(store);
+
     return {
+      store,
       firstname: "",
       lastname: "",
       email: "",
@@ -52,15 +68,20 @@ export default {
   },
   methods: {
     submitProfile() {
-      const store = useStore();
-      store.dispatch("user/setFirstName", this.firstname);
-      store.dispatch("user/setLastName", this.lastname);
-      store.dispatch("user/setEmail", this.email);
-      store.dispatch("user/setOccupation", this.occupation);
+      console.log(this.firstname, this.lastname, this.email, this.occupation);
+      this.store.dispatch("user/setFirstName", this.firstname);
+      this.store.dispatch("user/setLastName", this.lastname);
+      this.store.dispatch("user/setEmail", this.email);
+      this.store.dispatch("user/setOccupation", this.occupation);
+
+      this.store.dispatch("setProfileStatus", true);
     },
   },
 };
 </script>
 
 <style>
+.input {
+  @apply border border-2 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent rounded-md sm:w-96 md:w-96 lg:w-96 w-72 py-2 px-2;
+}
 </style>

@@ -1,9 +1,14 @@
 import {
     createStore
-} from 'vuex'
+} from 'vuex';
+
+import * as user from '../modules/user';
 
 const store = createStore({
     strict: true,
+    modules: {
+        user
+    },
     state: {
         isProfileCreated: false,
 
@@ -17,6 +22,11 @@ const store = createStore({
         selectedColor: 'dark:bg-gray-800 text-white'
     },
     actions: {
+        setProfileStatus({
+            commit
+        }, status) {
+            commit('PROFILE_STATUS', status)
+        },
         toggleMainColor({
             state,
             dispatch,
@@ -40,6 +50,9 @@ const store = createStore({
         },
     },
     mutations: {
+        PROFILE_STATUS(state, status) {
+            state.isProfileCreated = status
+        },
         TOGGLE_MAIN_COLOR(state, color) {
             // TODO: implement theme on LS
             // localStorage.setItem('theme', color)
