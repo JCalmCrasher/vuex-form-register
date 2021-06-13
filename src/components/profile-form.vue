@@ -33,8 +33,8 @@
         <div class="flex">
           <button
             type="submit"
-            class="px-3 py-3 my-3 rounded-md w-full hover:bg-gray-700"
-            :class="defaultBtnColor"
+            class="px-3 py-3 my-3 rounded-md w-full"
+            :class="btnStyle"
           >
             Create my profile
           </button>
@@ -63,7 +63,7 @@ export default {
       email: "",
       occupation: "",
 
-      defaultBtnColor: computed(() => store.state.selectedBtnColor),
+      btnStyle: computed(() => store.state.btnStyle),
     };
   },
   methods: {

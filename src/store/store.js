@@ -11,6 +11,7 @@ const store = createStore({
     },
     state: {
         isProfileCreated: false,
+        btnStyle: "border border-solid border-gray-600 hover:bg-gray-700",
 
     },
     actions: {
